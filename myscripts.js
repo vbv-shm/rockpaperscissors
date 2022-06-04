@@ -4,8 +4,7 @@ function computerPlay(){
     else if(x>1 && x<=2 ){return "paper";}
     else return "scissors";
 }
-const computerSelection=computerPlay();
-const playerselection="rock";
+
 
 function playGround(playerselection,computerSelection){
     if (playerselection=="rock"){
@@ -24,3 +23,21 @@ function playGround(playerselection,computerSelection){
         else if(computerSelection=="scissors"){return "Draw";}
     }
 }
+
+function game(){
+    let playerScore=0;
+    let computerScore=0;
+    for (let i = 0; i < 5; i++) {
+        const computerSelection=computerPlay();
+        const playerselection="rock";
+        result=playGround(playerselection,computerSelection);
+        if (result=="Player wins"){playerScore=playerScore+1;}
+        if (result=="Computer wins"){computerScore=computerScore+1;}
+        
+     }
+     return "players score is $(playerScore) and computer score is $(computerScore)";
+
+}
+
+
+console.log(game())
