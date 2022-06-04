@@ -35,8 +35,8 @@ function game(){
     let computerScore=0;
     for (let i = 0; i < 5; i++) {
         console.log("Its round " +(i+1));
-        const computerSelection=computerPlay();
         const playerselection=window.prompt("Type rock, paper or scissors.");
+        const computerSelection=computerPlay();
         console.log("Player selected "+playerselection)
         result=playGround(playerselection,computerSelection);
         if (result=="Player wins"){
