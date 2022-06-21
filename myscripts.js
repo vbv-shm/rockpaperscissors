@@ -12,43 +12,74 @@ function computerPlay(){
 }
 
 
-function playGround(playerselection,computerSelection){
+function playRound(playerselection){
+    // playerselection=
+    computerSelection=computerPlay();
     if (playerselection=="rock"){
-        if(computerSelection=="rock"){return "Draw";}
-        else if(computerSelection=="paper"){return "Computer wins";}
-        else if(computerSelection=="scissors"){return "Player wins";}
+        if(computerSelection=="paper"){
+            computerScore=computerScore+1;}
+        else if(computerSelection=="scissors"){
+            playerScore=playerScore+1;}
     }
     else if (playerselection=="paper"){
-        if(computerSelection=="rock"){return "Player wins";}
-        else if(computerSelection=="paper"){return "Draw";}
-        else if(computerSelection=="scissors"){return "Computer wins";}
+        if(computerSelection=="rock"){
+            playerScore=playerScore+1;}
+        else if(computerSelection=="scissors"){
+            computerScore=computerScore+1;}
     }
     else{
-        if(computerSelection=="rock"){return "Computer wins";}
-        else if(computerSelection=="paper"){return "Player wins";}
-        else if(computerSelection=="scissors"){return "Draw";}
-    };
-}
-
-function game(){
-    let playerScore=0;
-    let computerScore=0;
-    for (let i = 0; i < 5; i++) {
-        console.log("Its round " +(i+1));
-        const playerselection=window.prompt("Type rock, paper or scissors.");
-        const computerSelection=computerPlay();
-        console.log("Player selected "+playerselection)
-        result=playGround(playerselection,computerSelection);
-        if (result=="Player wins"){
-            console.log("Player won round " +(i+1));
-            playerScore=playerScore+1;}
-        if (result=="Computer wins"){
-            console.log("Computer won round " +(i+1));
+        if(computerSelection=="rock"){
             computerScore=computerScore+1;}
-        
-     }
-     return "players score is "+playerScore+" and computer score is "+computerScore;
-
+        else if(computerSelection=="paper"){
+            playerScore=playerScore+1;
+            }
+ 
+    };
+    scoreCheck();
 }
 
+function scoreCheck(){
+    if (playerScore==5){
+        playerScore=0;
+        computerScore=0;
+        alert("PLAYER WON");}
+    else if(computerScore==5){
+        playerScore=0;
+        computerScore=0;
+        alert("COMPUTER WON");
+    }
+}
+
+// function game(){
+//     while(playerScore<5 && computerScore<5){
+//         let x;
+//     }
+//     if(playerScore==5){
+//         alert('player won');
+//     }
+//     else{
+//         alert('computer won');
+//     }
+// }
+let playerScore=0;
+let computerScore=0;
+
+
+function rockSelected(){
+    playRound('rock');
+}
+function paperSelected(){
+    playRound('paper');
+}
+function scissorsSelected(){
+    playRound('scissors');
+}
+
+
+document.getElementById('rock').addEventListener('click',rockSelected);
+document.getElementById('paper').addEventListener('click',paperSelected);
+document.getElementById('scissors').addEventListener('click',scissorsSelected);
+
+document.getElementById('playerscore').innerText='Player score ='+playerScore;
+document.getElementById('computerscore').innerText=`Computer score =${computerScore}`;
 
