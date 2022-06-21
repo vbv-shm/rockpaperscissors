@@ -13,28 +13,47 @@ function computerPlay(){
 
 
 function playRound(playerselection){
-    // playerselection=
+    var stat;
     computerSelection=computerPlay();
+    document.getElementById('stats1').innerText='Player selected '+playerselection+' and computer selected '+computerSelection;
+
     if (playerselection=="rock"){
         if(computerSelection=="paper"){
-            computerScore=computerScore+1;}
+            computerScore=computerScore+1;
+        stat='cwon';}
         else if(computerSelection=="scissors"){
-            playerScore=playerScore+1;}
+            playerScore=playerScore+1;
+            stat='pwon';}
     }
     else if (playerselection=="paper"){
         if(computerSelection=="rock"){
-            playerScore=playerScore+1;}
+            playerScore=playerScore+1;
+            stat='pwon';}
         else if(computerSelection=="scissors"){
-            computerScore=computerScore+1;}
+            computerScore=computerScore+1;
+            stat='cwon';
+        }
     }
     else{
         if(computerSelection=="rock"){
-            computerScore=computerScore+1;}
+            computerScore=computerScore+1;
+            stat='cwon';}
         else if(computerSelection=="paper"){
             playerScore=playerScore+1;
+            stat='pwon';
             }
  
     };
+    if(stat=='cwon'){
+        document.getElementById('stats2').innerText='Computer Won this round';
+    }
+    else if(stat=='pwon'){
+        document.getElementById('stats2').innerText='Player Won this round';
+    }
+    else{document.getElementById('stats2').innerText='This round is draw';}
+    document.getElementById('playerscore').innerText='Player score ='+playerScore;
+
+    document.getElementById('computerscore').innerText=`Computer score =${computerScore}`;
     scoreCheck();
 }
 
