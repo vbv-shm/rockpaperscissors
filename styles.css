@@ -1,6 +1,24 @@
 button{
-    width: 30px;
+    width: 100px;
+    margin: 100px;
+
 }
 buttoncontainer{
     display: flex;
+    justify-content: center;
+    
+}
+h1{
+    color: blueviolet;
+    margin-left: 400px;
+}
+p{
+    color: rgb(181, 63, 82);
+}
+
+#stats1, #stats2 , #playerscore,#computerscore{
+    text-align: center;
+}
+body{
+    background-color: aquamarine;
 }
