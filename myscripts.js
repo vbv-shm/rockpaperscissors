@@ -65,13 +65,18 @@ function scoreCheck(){
         computerScore=0;
         
         alert("PLAYER WON THE GAME");
-        setScore(0,0)}
+        setScore(0,0)
+        document.getElementById('stats1').innerText='Select your Weapon';
+        document.getElementById('stats2').innerText='';
+    }
     else if(computerScore==5){
         playerScore=0;
         computerScore=0;
         
         alert("COMPUTER WON THE GAME");
-        setScore(0,0)
+        setScore(0,0);
+        document.getElementById('stats1').innerText='Select your Weapon';
+        document.getElementById('stats2').innerText='';
     }
 }
 
