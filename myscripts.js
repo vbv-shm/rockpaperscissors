@@ -71,7 +71,7 @@ function scoreCheck(){
         computerScore=0;
         
         alert("COMPUTER WON THE GAME");
-        
+        setScore(0,0)
     }
 }
 
