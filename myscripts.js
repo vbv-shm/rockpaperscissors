@@ -51,35 +51,30 @@ function playRound(playerselection){
         document.getElementById('stats2').innerText='Player Won this round';
     }
     else{document.getElementById('stats2').innerText='This round is draw';}
+    setScore(playerScore,computerScore)
+    setTimeout(scoreCheck,50);
+}
+function setScore(playerScore,computerScore){
     document.getElementById('playerscore').innerText='Player score ='+playerScore;
 
     document.getElementById('computerscore').innerText=`Computer score =${computerScore}`;
-    scoreCheck();
 }
-
 function scoreCheck(){
     if (playerScore==5){
         playerScore=0;
         computerScore=0;
-        alert("PLAYER WON");}
+        
+        alert("PLAYER WON THE GAME");
+        setScore(0,0)}
     else if(computerScore==5){
         playerScore=0;
         computerScore=0;
-        alert("COMPUTER WON");
+        
+        alert("COMPUTER WON THE GAME");
+        
     }
 }
 
-// function game(){
-//     while(playerScore<5 && computerScore<5){
-//         let x;
-//     }
-//     if(playerScore==5){
-//         alert('player won');
-//     }
-//     else{
-//         alert('computer won');
-//     }
-// }
 let playerScore=0;
 let computerScore=0;
 
